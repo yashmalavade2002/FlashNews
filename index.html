@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News App</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Include Font Awesome for the icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body class="dark-mode">
+    <nav>
+        <div class="main-nav container flex">
+            <div class="nav-links">
+                <!-- Breaking News Icon -->
+                <ul class="flex">
+                    <li class="hover-link nav-item" id="breaking-news">
+                        <i class="fas fa-bullhorn"></i> Breaking News
+                    </li>
+                    <li class="hover-link nav-item" id="ipl" onclick="onNavItemClick('ipl')">IPL</li>
+                    <li class="hover-link nav-item" id="finance" onclick="onNavItemClick('finance')">Finance</li>
+                    <li class="hover-link nav-item" id="politics" onclick="onNavItemClick('politics')">Politics</li>
+                </ul>
+            </div>
+            <div class="search-bar flex">
+                <input id="search-text" type="text" class="news-input" placeholder="e.g. Science">
+                <button id="search-button" class="search-button">Search</button>
+            </div>
+            <!-- Bright Mode Toggle next to the search bar -->
+            <div class="mode-toggle">
+                <button id="mode-button" onclick="toggleMode()">
+                    <i id="mode-icon" class="fas fa-moon"></i> <!-- Default icon (dark mode) -->
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <main>
+        <div class="cards-container container flex" id="cards-container">
+        </div>
+    </main>
+
+    <template id="template-news-card">
+        <div class="card">
+            <div class="card-header">
+                <img src="https://via.placeholder.com/400x200" alt="news-image" id="news-img">
+            </div>
+            <div class="card-content">
+                <h3 id="news-title">This is the Title</h3>
+                <h6 class="news-source" id="news-source">End Gadget 26/08/2023</h6>
+                <p class="news-desc" id="news-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+        </div>
+    </template>
+
+    <script>
+        // Toggle Dark and Light Mode
+        function toggleMode() {
+            const body = document.body;
+            const modeIcon = document.getElementById("mode-icon");
+
+            body.classList.toggle("light-mode");
+            body.classList.toggle("dark-mode");
+
+            // Toggle icon between moon and sun
+            if (body.classList.contains("light-mode")) {
+                modeIcon.classList.remove("fa-moon");
+                modeIcon.classList.add("fa-sun");
+            } else {
+                modeIcon.classList.remove("fa-sun");
+                modeIcon.classList.add("fa-moon");
+            }
+        }
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>

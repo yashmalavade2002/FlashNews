@@ -1,0 +1,597 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto:wght@400;500&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --primary-text-color: #ffffff;
+    --secondary-text-color: #cbd5e1;
+    --accent-color: #2294ed;
+    --accent-color-dark: #1d69a3;
+    --background-color: #121212;
+    --card-background: #1e1e1e;
+    --shadow-light: 0px 4px 6px rgba(255, 255, 255, 0.1);
+    --shadow-hover: 0px 8px 16px rgba(255, 255, 255, 0.2);
+    --shadow-live: 0px 10px 20px rgba(255, 255, 255, 0.25);
+}
+
+body {
+    color: var(--primary-text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* Light Mode */
+.light-mode {
+    --primary-text-color: #121212;
+    --secondary-text-color: #444;
+    --background-color: #ffffff;
+    --card-background: #f8f9fa;
+    --shadow-light: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    --shadow-live: 0px 10px 20px rgba(0, 0, 0, 0.25);
+}
+
+p {
+    font-family: "Roboto", sans-serif;
+    color: var(--secondary-text-color);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Utility Classes */
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    max-width: 1180px;
+    margin: auto;
+    padding-inline: 16px;
+}
+
+/* Navbar */
+nav {
+    background-color: var(--card-background);
+    box-shadow: var(--shadow-light);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 12px 20px;
+    height: 100px;
+    transition: all 0.3s ease-in-out;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-inline: 12px;
+}
+
+/* Navigation Links */
+.nav-links {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.nav-links ul {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-item {
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    margin-bottom: 80px;
+    margin-top: 10px;
+    color: var(--primary-text-color);
+}
+
+.nav-item:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.nav-item.active {
+    color: var(--accent-color);
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 20px;
+    margin-bottom: 90px;
+    margin-top: 20px;
+}
+
+.news-input {
+    width: 250px;
+    height: 36px;
+    padding: 8px;
+    border-radius: 8px;
+    border: 2px solid #444;
+    background-color: #2a2a2a;
+    color: white;
+    font-size: 14px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.news-input:focus {
+    border-color: var(--accent-color);
+    outline: none;
+}
+
+.search-button {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    font-size: 14px;
+}
+
+.search-button:hover {
+    background-color: var(--accent-color-dark);
+    transform: scale(1.05);
+}
+
+/* Main Content */
+main {
+    padding-block: 24px;
+    margin-top: 120px;
+}
+
+/* Card Grid */
+.cards-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    row-gap: 32px;
+    align-items: start;
+    margin-top: 20px;
+}
+
+/* Card Design */
+.card {
+    width: 340px;
+    min-height: 420px;
+    box-shadow: var(--shadow-light);
+    border-radius: 8px;
+    background-color: var(--card-background);
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    position: relative;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-hover);
+    background-color: #2a2a2a;
+    transform: translateY(-5px);
+}
+
+.card:active {
+    box-shadow: var(--shadow-live);
+    transform: translateY(-2px) scale(1.02);
+}
+
+.card-header img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.card-content {
+    padding: 16px;
+}
+
+.news-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--primary-text-color);
+    text-align: center;
+}
+
+.news-description {
+    font-size: 1rem;
+    color: var(--secondary-text-color);
+    margin-bottom: 12px;
+    text-align: justify;
+}
+
+.news-source {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--accent-color);
+    margin-top: 12px;
+    display: block;
+    text-align: center;
+}
+
+/* Flexbox adjustments to align the toggle button */
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.mode-toggle button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    font-size: 35px; /* Initial icon size */
+    margin-bottom: 70px;
+    margin-right: 30px ;
+}
+
+/* Increased size for the icon */
+.mode-toggle button .icon {
+    font-size: 30px; /* Increased icon size */
+}
+
+/* Default dark mode styles */
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+body.light-mode {
+    background-color: white;
+    color: black;
+}
+
+/* Adjust button color for light mode */
+body.light-mode .search-button {
+    background-color: #f0f0f0;
+    color: black;
+}
+/* Adjust button color for light mode */
+body.light-mode .search-button {
+    background-color: var(--accent-color); /* Use blue accent color */
+    color: white; /* Set text color to white for contrast */
+}
+
+/* Adjust hover state in light mode */
+body.light-mode .search-button:hover {
+    background-color: var(--accent-color-dark); /* Darker blue for hover state */
+}
+/* Light Mode - Search Input */
+body.light-mode .news-input {
+    background-color: white; /* White background in light mode */
+    color: black; /* Dark text color for contrast */
+    border: 2px solid #ccc; /* Light gray border */
+}
+
+/* Focus state for search input in light mode */
+body.light-mode .news-input:focus {
+    border-color: var(--accent-color); /* Blue border on focus */
+    outline: none; /* Remove default outline */
+}
+/* Flexbox adjustments to align the search bar and dark mode button */
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between search input and button */
+    margin-left: 20px;
+    margin-bottom: 90px;
+    margin-top: 20px;
+}
+
+.mode-toggle {
+    margin-left: 20px; /* Adds space between the search button and the toggle icon */
+}
+
+.mode-toggle button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    font-size: 30px; /* Adjusted icon size */
+    margin-bottom: 70px;
+    margin-right: 20px; /* Decreased right margin for a better space ratio */
+}
+
+/* Increased size for the icon */
+.mode-toggle button .icon {
+    font-size: 30px; /* Increased icon size */
+}
+
+/* Default dark mode styles */
+body.dark-mode {
+    background-color: #121212;
+    color: white;
+}
+
+body.light-mode {
+    background-color: white;
+    color: black;
+}
+
+/* Adjust button color for light mode */
+body.light-mode .search-button {
+    background-color: #f0f0f0;
+    color: black;
+}
+
+/* Adjust hover state in light mode */
+body.light-mode .search-button:hover {
+    background-color: var(--accent-color-dark);
+}
+
+/* Light Mode - Search Input */
+body.light-mode .news-input {
+    background-color: white; /* White background in light mode */
+    color: black; /* Dark text color for contrast */
+    border: 2px solid #ccc; /* Light gray border */
+}
+
+/* Focus state for search input in light mode */
+body.light-mode .news-input:focus {
+    border-color: var(--accent-color); /* Blue border on focus */
+    outline: none; /* Remove default outline */
+}
+/* Card Design */
+.card {
+    width: 340px;
+    min-height: 420px;
+    box-shadow: var(--shadow-light);
+    border-radius: 8px;
+    background-color: var(--card-background);
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    position: relative;
+}
+
+.card:hover {
+    box-shadow: var(--shadow-hover);
+    background-color: var(--card-background); /* Keep the background color same as normal in light mode */
+    transform: translateY(-5px);
+}
+
+.card:active {
+    box-shadow: var(--shadow-live);
+    transform: translateY(-2px) scale(1.02);
+}
+/* Adjust button color for light mode */
+body.light-mode .search-button {
+    background-color: var(--accent-color); /* Blue accent color in light mode */
+    color: white; /* Set text color to white for contrast */
+}
+
+/* Adjust hover state in light mode */
+body.light-mode .search-button:hover {
+    background-color: var(--accent-color-dark); /* Darker blue for hover state */
+}
+/* Style the Breaking News icon in the navbar */
+#breaking-news {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#breaking-news i {
+    margin-right: 8px;
+    font-size: 20px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-item {
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.nav-item:hover {
+    background-color: #444;
+    color: white;
+}
+/* Style the Breaking News icon in the navbar */
+#breaking-news {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 8px 15px; /* Adding padding for better spacing */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Breaking News icon itself */
+#breaking-news i {
+    margin-right: 8px;
+    font-size: 22px; /* Increase the size of the icon */
+    color: #f39c12; /* A bright, attention-grabbing color */
+    transition: transform 0.3s ease; /* Smooth icon animation */
+}
+
+/* Add a hover effect on the Breaking News icon */
+#breaking-news:hover {
+    background-color: #2c3e50; /* Dark background on hover */
+    color: white; /* Change text color to white */
+    transform: scale(1.1); /* Slightly increase size on hover */
+}
+
+/* Change the color of the icon when hovered */
+#breaking-news:hover i {
+    transform: rotate(10deg); /* Rotate the icon a little bit on hover */
+    color: #e74c3c; /* Change the icon color to red on hover */
+}
+
+/* Style the nav items in the navbar */
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.nav-item:hover {
+    background-color: #34495e; /* Dark background color for other nav items on hover */
+    color: white; /* Change text color to white on hover */
+}
+
+/* Dark Mode Styling */
+body.dark-mode {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+body.light-mode {
+    background-color: white;
+    color: black;
+}
+/* Navbar */
+nav {
+    background-color: var(--card-background);
+    box-shadow: var(--shadow-light);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 12px 20px;
+    height: 100px;
+    transition: all 0.3s ease-in-out;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-inline: 12px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;  /* Centers the nav items */
+    margin-left: auto;
+    margin-right: auto;  /* Centers the navigation items */
+    gap: 20px;  /* Adds space between the items */
+}
+
+.nav-item {
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    margin-top: 10px;
+    color: var(--primary-text-color);
+}
+
+.nav-item:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+.nav-item.active {
+    color: var(--accent-color);
+}
+
+/* Breaking News */
+#breaking-news {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#breaking-news i {
+    margin-right: 8px;
+    font-size: 22px;
+    color: #f39c12;
+    transition: transform 0.3s ease;
+}
+
+#breaking-news:hover {
+    background-color: #2c3e50;
+    color: white;
+    transform: scale(1.1);
+}
+
+#breaking-news:hover i {
+    transform: rotate(10deg);
+    color: #e74c3c;
+}
+
+/* Search Bar and Bright Mode */
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.mode-toggle {
+    margin-left: 20px;
+}
+
+.mode-toggle button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    font-size: 30px;
+}
+
+.mode-toggle button .icon {
+    font-size: 30px;
+}
+
