@@ -16,6 +16,6 @@ FlashNews is a real-time news application built using HTML, CSS, and JavaScript.
 - **UI/UX Enhancements:** Dark/Bright Mode Toggle
 
 ## 📸 Snapshot
-![FlashNews Preview](your-snapshot-link-here)
+![FlashNews Preview](https://github.com/yashmalavade2002/FlashNews/blob/9e6566581e45f513aa164d64b41caf17a6d436b0/Screenshot%20(91).png)
 
 
